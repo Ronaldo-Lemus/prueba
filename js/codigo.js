@@ -1,19 +1,5 @@
 
-		//---Al presionar el botón de buscar
-		document.getElementById("button").addEventListener("click", function(){
-
-			var search = document.getElementById("search").value;
-
-			if(search.length == 0) return;
-
-			var props = searchInText( search, document.getElementById("content").innerHTML );
-		
-			document.getElementById("results").innerHTML = (props.total > 0) ? "Veces que se repite la palabra: " + props.total : "No se ha encontrado";
-			
-			if(props.total > 0) document.getElementById("content").innerHTML = props.html;
-
-		});
-		window.onload = function(){
+                  window.onload = function(){
 
 				//---Función de realizar la búsqueda
 				function searchInText( word, html ) {
@@ -61,7 +47,19 @@
 
 				}
 
-				
+				//---Al presionar el botón de buscar
+				document.getElementById("button").addEventListener("click", function(){
+
+					var search = document.getElementById("search").value;
+
+					if(search.length == 0) return;
+
+				    var props = searchInText( search, document.getElementById("content").innerHTML );
+                
+                    document.getElementById("results").innerHTML = (props.total > 0) ? "Veces que se repite la palabra: " + props.total : "No se ha encontrado";
+				    
+				    if(props.total > 0) document.getElementById("content").innerHTML = props.html;
+
+				});
 
             }
-    
